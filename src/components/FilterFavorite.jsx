@@ -7,6 +7,11 @@ import {
 } from "@mui/material";
 
 export default function FilterFavorite(props) {
+  // filter functions to match favorites
+  function selectFavFilterType(event) {
+    props.setFavorites(event.target.value);
+  }
+
   return (
     <FormControl>
       <FormLabel id="demo-controlled-radio-buttons-group">Favorites</FormLabel>
@@ -14,7 +19,7 @@ export default function FilterFavorite(props) {
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
         value={props.favorites}
-        onChange={props.selectFavFilterType}
+        onChange={selectFavFilterType}
       >
         <FormControlLabel value="All" control={<Radio />} label="All" />
         <FormControlLabel

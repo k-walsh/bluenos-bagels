@@ -7,49 +7,12 @@ import {
 } from "@mui/material";
 
 export default function FilterCategory(props) {
-  //   const [category, setCategory] = useState("All");
-  //   const [favorites, setFavorites] = useState("All");
-
-  //   // filter functions to match categories
-  //   const selectCategoryFilterType = (event) => {
-  //     setCategory(event.target.value);
-  //   };
-
-  //   const matchesCategoryFiltertype = (item) => {
-  //     if (category === "All") {
-  //       return true;
-  //     } else if (category === item.category) {
-  //       return true;
-  //     } else {
-  //       return false;
-  //     }
-  //   };
-
-  //   // filter functions to match favorites
-  //   const selectFavFilterType = (event) => {
-  //     setFavorites(event.target.value);
-  //   };
-
-  //   const matchesFavFiltertype = (item) => {
-  //     if (favorites === "All") {
-  //       return true;
-  //     } else {
-  //       return item.favorite; // favorite is a boolean already
-  //     }
-  //   };
-
-  //   const filteredData = props.items.filter((e) => {
-  //     return matchesCategoryFiltertype(e) && matchesFavFiltertype(e);
-  //   });
-  //   props.setItems(filteredData);
-
-  //   useEffect(() => {
-  //     const filteredData = props.items.filter((e) => {
-  //       return matchesCategoryFiltertype(e) && matchesFavFiltertype(e);
-  //     });
-
-  //     props.setItems(filteredData);
-  //   }, [category, favorites]);
+  // console.log("props", props);
+  // filter functions to match categories
+  function selectCategoryFilterType(event) {
+    // console.log("Hi");
+    props.setCategory(event.target.value);
+  }
 
   return (
     <FormControl>
@@ -58,7 +21,7 @@ export default function FilterCategory(props) {
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
         value={props.category}
-        onChange={props.selectCategoryFilterType}
+        onChange={selectCategoryFilterType}
       >
         <FormControlLabel value="All" control={<Radio />} label="All" />
         <FormControlLabel value="Bagels" control={<Radio />} label="Bagels" />

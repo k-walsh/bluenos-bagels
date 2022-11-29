@@ -5,22 +5,17 @@ import { useState } from "react";
 import FilterCategory from "./FilterCategory";
 import FilterFavorite from "./FilterFavorite";
 import SortItems from "./SortItems";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import { Button } from "@mui/material";
+import Cart from "./Cart";
+import Footer from "./Footer";
 
 bakeryData.forEach((item) => {
   item.image = process.env.PUBLIC_URL + "/" + item.image;
 });
 
 function App() {
+  // filter
   const [category, setCategory] = useState("All");
   const [favorites, setFavorites] = useState("All");
-
-  // filter functions to match categories
-  const selectCategoryFilterType = (event) => {
-    setCategory(event.target.value);
-  };
 
   const matchesCategoryFiltertype = (item) => {
     if (category === "All") {
@@ -32,11 +27,6 @@ function App() {
     }
   };
 
-  // filter functions to match favorites
-  const selectFavFilterType = (event) => {
-    setFavorites(event.target.value);
-  };
-
   const matchesFavFiltertype = (item) => {
     if (favorites === "All") {
       return true;
@@ -44,11 +34,6 @@ function App() {
       return item.favorite; // favorite is a boolean already
     }
   };
-
-  // const reset = () => {
-  //   setFavorites("All");
-  //   setCategory("All");
-  // };
 
   const filteredData = bakeryData.filter((e) => {
     return matchesCategoryFiltertype(e) && matchesFavFiltertype(e);
@@ -87,86 +72,24 @@ function App() {
     }
   }
 
-  /**
-   * Maps every cart item to it's total price and sums the prices of all items
-   * @returns the total price of everything in the cart
-   */
-  function totalPrice() {
-    let sum = 0;
-    // map every cart item to its total price
-    let prices = Object.keys(cartItems).map((item) => cartItems[item][1]);
-
-    for (const p of prices) {
-      sum = sum + p;
-    }
-
-    return Math.round(sum * 100) / 100;
-  }
-
-  function addOne(item_name, item_price) {
-    const count = cartItems[item_name][0];
-    const all_price = ((count + 1) * item_price) / count;
-    cartItems[item_name] = [count + 1, all_price];
-    setCartItems({ ...cartItems });
-  }
-
-  function removeOne(item_name, item_price) {
-    console.log("remove", item_name);
-    const count = cartItems[item_name][0];
-    if (count > 1) {
-      const all_price = ((count - 1) * item_price) / count;
-      cartItems[item_name] = [count - 1, all_price];
-      setCartItems({ ...cartItems });
-    } else {
-      delete cartItems[item_name];
-      setCartItems({ ...cartItems });
-    }
-  }
-
-  /**
-   *
-   * @returns the html to render the cart and total
-   */
-  function displayCart() {
-    console.log(cartItems);
-    if (Object.keys(cartItems).length === 0) {
-      return <p>Nothing here just yet!</p>;
-    } else {
-      return (
-        <div>
-          {Object.keys(cartItems).map((item) => (
-            <div className="itemCart">
-              <RemoveCircleOutlineIcon
-                onClick={() => removeOne(item, cartItems[item][1])}
-              />
-              <p>&nbsp;{cartItems[item][0]}&nbsp;</p>
-              <AddCircleOutlineIcon
-                onClick={() => addOne(item, cartItems[item][1])}
-              />
-              <p>&nbsp;</p>
-              <p>{item}</p>
-              {
-                // todo if 0, remove from cart entirely
-                // also price is not updating right now
-              }
-            </div>
-          ))}
-          <h3>
-            <b>Total: ${totalPrice()}</b>
-          </h3>
-          <Button variant="outlined" onClick={() => setCartItems({})}>
-            Clear Cart
-          </Button>
-        </div>
-      );
-    }
-  }
-
   function renderItems() {
     if (sortedItems.length > 0) {
       return sortedItems.map((item, index) => (
         <BakeryItem key={index} item={item} addToCart={addToCart} />
       ));
+    } else if (category === "All" && favorites) {
+      return (
+        <div>
+          <p>There are no items that match these filters.</p>
+          <p>Add some items to your favorites!</p>
+        </div>
+      );
+    } else if (favorites) {
+      return (
+        <div>
+          <p>There are no {category} in your favorites.</p>
+        </div>
+      );
     } else {
       return <p>There are no items that match these filters</p>;
     }
@@ -176,7 +99,7 @@ function App() {
     <div className="App">
       <div className="Header">
         <img src="images/blueno.png" alt="blueno - blue bear with lamp" />
-        <h1>Blueno's Bakery</h1>
+        <h1>Blueno's Bagel Shop</h1>
       </div>
       <div className="Content">
         <div className="Sidebar">
@@ -190,38 +113,26 @@ function App() {
             <FilterCategory
               className="FilterCategory"
               category={category}
-              selectCategoryFilterType={selectCategoryFilterType}
+              setCategory={setCategory}
             />
             <br />
             <FilterFavorite
               className="FilterFavorite"
               favorites={favorites}
-              selectFavFilterType={selectFavFilterType}
+              setFavorites={setFavorites}
             />
-
-            {
-              //todo - add something that says add to favorites if favorites is empty
-              // or like no bagel favorites if choose bagel + favorites
-            }
-            {/* 
-          <Button variant="outlined" onClick={reset}>
-            Reset Filters
-          </Button> */}
           </div>
 
-          <div className="Cart">
-            <h2>Cart</h2>
-            {displayCart()}
-          </div>
+          <Cart
+            cartItems={cartItems}
+            setCartItems={setCartItems}
+            addToCart={addToCart}
+          />
         </div>
 
         <div className="Items">{renderItems()}</div>
       </div>
-      <footer>
-        <p>
-          Images, descriptions, and item info were borrowed from panerabread.com
-        </p>
-      </footer>
+      <Footer />
     </div>
   );
 }

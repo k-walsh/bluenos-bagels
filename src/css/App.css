@@ -24,17 +24,12 @@
   margin: 0;
 }
 
-/* .Sidebar {
+.Sidebar {
   margin: 0 3%;
   /* width: 200px;
   why does just setting width here alone
   (and not in sortfilter and cart)
-  not change the width of the sidebar
-} */
-
-.Sidebar {
-  margin: 0 3%;
-  width: 200px;
+  not change the width of the sidebar*/
 }
 
 .SortFilter {
