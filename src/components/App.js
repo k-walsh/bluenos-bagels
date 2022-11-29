@@ -7,6 +7,7 @@ import FilterFavorite from "./FilterFavorite";
 import SortItems from "./SortItems";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
+import { Button } from "@mui/material";
 
 bakeryData.forEach((item) => {
   item.image = process.env.PUBLIC_URL + "/" + item.image;
@@ -102,18 +103,24 @@ function App() {
     return Math.round(sum * 100) / 100;
   }
 
-  function addOne(item_name) {
+  function addOne(item_name, item_price) {
     const count = cartItems[item_name][0];
-    cartItems[item_name][0] = count + 1;
+    const all_price = ((count + 1) * item_price) / count;
+    cartItems[item_name] = [count + 1, all_price];
     setCartItems({ ...cartItems });
   }
 
   function removeOne(item_name, item_price) {
     console.log("remove", item_name);
     const count = cartItems[item_name][0];
-    const all_price = (count - 1) * item_price;
-    cartItems[item_name] = [count - 1, all_price];
-    setCartItems({ ...cartItems });
+    if (count > 1) {
+      const all_price = ((count - 1) * item_price) / count;
+      cartItems[item_name] = [count - 1, all_price];
+      setCartItems({ ...cartItems });
+    } else {
+      delete cartItems[item_name];
+      setCartItems({ ...cartItems });
+    }
   }
 
   /**
@@ -128,16 +135,15 @@ function App() {
       return (
         <div>
           {Object.keys(cartItems).map((item) => (
-            <div className="itemCount">
-              {console.log(item, cartItems[item][1])}
-
+            <div className="itemCart">
               <RemoveCircleOutlineIcon
                 onClick={() => removeOne(item, cartItems[item][1])}
               />
-              <p>{cartItems[item][0]}</p>
+              <p>&nbsp;{cartItems[item][0]}&nbsp;</p>
               <AddCircleOutlineIcon
-                onClick={() => addToCart(item, cartItems[item][1])}
+                onClick={() => addOne(item, cartItems[item][1])}
               />
+              <p>&nbsp;</p>
               <p>{item}</p>
               {
                 // todo if 0, remove from cart entirely
@@ -145,9 +151,12 @@ function App() {
               }
             </div>
           ))}
-          <p>
+          <h3>
             <b>Total: ${totalPrice()}</b>
-          </p>
+          </h3>
+          <Button variant="outlined" onClick={() => setCartItems({})}>
+            Clear Cart
+          </Button>
         </div>
       );
     }
@@ -166,38 +175,41 @@ function App() {
   return (
     <div className="App">
       <div className="Header">
+        <img src="images/blueno.png" alt="blueno - blue bear with lamp" />
         <h1>Blueno's Bakery</h1>
       </div>
       <div className="Content">
         <div className="Sidebar">
-          <SortItems
-            className="SortBy"
-            sortType={sortType}
-            selectSortType={selectSortType}
-          />
+          <div className="SortFilter">
+            <SortItems
+              className="SortBy"
+              sortType={sortType}
+              selectSortType={selectSortType}
+            />
+            <br />
+            <FilterCategory
+              className="FilterCategory"
+              category={category}
+              selectCategoryFilterType={selectCategoryFilterType}
+            />
+            <br />
+            <FilterFavorite
+              className="FilterFavorite"
+              favorites={favorites}
+              selectFavFilterType={selectFavFilterType}
+            />
 
-          <FilterCategory
-            className="FilterCategory"
-            category={category}
-            selectCategoryFilterType={selectCategoryFilterType}
-          />
-
-          <FilterFavorite
-            className="FilterFavorite"
-            favorites={favorites}
-            selectFavFilterType={selectFavFilterType}
-          />
-
-          {
-            //todo - add something that says add to favorites if favorites is empty
-            // or like no bagel favorites if choose bagel + favorites
-          }
-          {/* 
+            {
+              //todo - add something that says add to favorites if favorites is empty
+              // or like no bagel favorites if choose bagel + favorites
+            }
+            {/* 
           <Button variant="outlined" onClick={reset}>
             Reset Filters
           </Button> */}
+          </div>
 
-          <div>
+          <div className="Cart">
             <h2>Cart</h2>
             {displayCart()}
           </div>
@@ -205,6 +217,11 @@ function App() {
 
         <div className="Items">{renderItems()}</div>
       </div>
+      <footer>
+        <p>
+          Images, descriptions, and item info were borrowed from panerabread.com
+        </p>
+      </footer>
     </div>
   );
 }

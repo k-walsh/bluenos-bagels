@@ -1,26 +1,57 @@
-.App {
-  text-align: center;
-}
-
 .Header {
-  background-color: rgb(76, 150, 247);
-  padding: 8%;
+  /* background-color: rgb(76, 150, 247); */
+  background-color: rgb(66, 201, 245);
+  padding: 3% 0% 2% 2%;
   font-size: 2.5vw;
   margin-bottom: 4%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.Header img {
+  width: 15%;
+  margin: 0;
+}
+
+.Header h1 {
+  margin-bottom: 2%;
+  margin-left: 1%;
 }
 
 .Content {
   display: flex;
   flex-direction: row;
   margin: 0;
-  flex: 1 3;
 }
 
+/* .Sidebar {
+  margin: 0 3%;
+  /* width: 200px;
+  why does just setting width here alone
+  (and not in sortfilter and cart)
+  not change the width of the sidebar
+} */
+
 .Sidebar {
-  background-color: red;
-  padding: 4%;
+  margin: 0 3%;
+  width: 200px;
+}
+
+.SortFilter {
+  padding: 0 5% 5% 5%;
   display: flex;
   flex-direction: column;
+  border: 2px solid rgb(182, 181, 181);
+  border-radius: 12px;
+  width: 200px;
+}
+
+.Cart {
+  margin-top: 20px;
+  padding: 5%;
+  border: 2px solid rgb(182, 181, 181);
+  border-radius: 12px;
+  width: 200px;
 }
 
 img {
@@ -32,15 +63,15 @@ img {
 .Items {
   display: flex;
   flex-wrap: wrap;
-  background-color: purple;
   justify-content: space-evenly;
+  margin: 0;
 }
 
 .ItemCard {
   background-color: blanchedalmond;
-  margin: 1%;
+  margin: 0 3% 4% 3%;
   border-radius: 25px;
-  width: 30vw;
+  width: 30vh;
   min-width: 300px;
 }
 
@@ -48,36 +79,47 @@ img {
   cursor: pointer;
 }
 
-.itemCount {
+.itemCart {
   display: flex;
   align-items: center;
   flex-direction: row;
 }
 
-@media (max-width: 600px) {
+.Cart h2 {
+  margin-top: 0%;
+  margin-bottom: 2%;
+}
+
+.ItemContent {
+  padding: 0% 5% 5% 5%;
+}
+
+.ItemCard h3 {
+  margin: 2% 0%;
+}
+
+.ItemCard h4 {
+  margin: 2% 0%;
+  font-weight: normal;
+}
+
+.ItemButtons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.Cart h3 {
+  margin-top: 4%;
+}
+
+footer {
+  margin-left: 2%;
+}
+
+/* @media (max-width: 600px) {
   .Items {
     display: flex;
     flex-wrap: wrap;
     background-color: palegreen;
   }
-}
-
-/* .ShadedHeart {
-  visibility: hidden;
-}
-
-.UnHearted:hover + .ShadedHeart {
-  display: block;
-  color: red;
-  visibility: visible;
-}
-
-.ShadedHeart:hover + .UnHearted {
-  visibility: hidden;
 } */
-
-/*
-eventually also add stuff for media queries
-and make it super responsive lie text resizes and everything
-need to figure out how to add a heart icon 
-*/
