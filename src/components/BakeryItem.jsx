@@ -35,7 +35,8 @@ export default function BakeryItem(props) {
       <div className="ItemContent">
         <h2>{item.name}</h2>
         <h3>
-          ${item.price} &nbsp; Calories: {item.calories}
+          {/* ${item.price} &nbsp; Calories: {item.calories} */}${item.price}{" "}
+          &#183; {item.calories} cal
         </h3>
         <h4>
           <i>Category: {item.category}</i>
