@@ -1,0 +1,222 @@
+[
+  {
+    "id": 1,
+    "name": "Asiago Bagel",
+    "description": "Freshly baked bagel made with chunks of asiago cheese baked inside and topped with more asiago.",
+    "price": 1.89,
+    "image": "images/asiago_bagel.png",
+    "category": "Bagels",
+    "favorite": false,
+    "calories": 310
+  },
+  {
+    "id": 2,
+    "name": "Blueberry Bagel",
+    "description": "Freshly baked bagel made with a mix of dried infused blueberries and blueberry flavors baked inside.",
+    "price": 1.89,
+    "image": "images/blueberry_bagel.png",
+    "category": "Bagels",
+    "favorite": false,
+    "calories": 290
+  },
+  {
+    "id": 3,
+    "name": "Chocolate Chip Bagel",
+    "description": "Freshly baked bagel made with milk chocolate chips.",
+    "price": 1.89,
+    "image": "images/choc_chip_bagel.png",
+    "category": "Bagels",
+    "favorite": false,
+    "calories": 330
+  },
+  {
+    "id": 4,
+    "name": "Cinnamon Bagel",
+    "description": "Freshly baked bagel made with cinnamon and vanilla flavored chips and topped with our sweet cinnamon crunch topping.",
+    "price": 1.89,
+    "image": "images/cinnamon_bagel.png",
+    "category": "Bagels",
+    "favorite": false,
+    "calories": 420
+  },
+  {
+    "id": 5,
+    "name": "Everything Bagel",
+    "description": "Freshly baked bagel topped with sesame seeds, poppy seeds, dried garlic, toasted onion & kosher salt.",
+    "price": 1.89,
+    "image": "images/everything_bagel.png",
+    "category": "Bagels",
+    "favorite": false,
+    "calories": 300
+  },
+  {
+    "id": 6,
+    "name": "Plain Bagel",
+    "description": "Freshly baked bagel lightly sweetened with brown sugar.",
+    "price": 1.89,
+    "image": "images/plain_bagel.png",
+    "category": "Bagels",
+    "favorite": false,
+    "calories": 280
+  },
+  {
+    "id": 7,
+    "name": "Sesame Bagel",
+    "description": "Freshly baked bagel topped with nutty sesame seeds.",
+    "price": 1.89,
+    "image": "images/sesame_bagel.png",
+    "category": "Bagels",
+    "favorite": false,
+    "calories": 300
+  },
+  {
+    "id": 8,
+    "name": "Blueberry Muffin",
+    "description": "Freshly baked muffin with blueberries and topped with streusel.",
+    "price": 3.69,
+    "image": "images/blueberry_muffin.png",
+    "category": "Muffins",
+    "favorite": false,
+    "calories": 510
+  },
+  {
+    "id": 9,
+    "name": "Cranberry Orange Muffin",
+    "description": "Freshly baked muffin made with orange peel and whole cranberries, topped with turbinado sugar.",
+    "price": 3.69,
+    "image": "images/cran_orange_muffin.png",
+    "category": "Muffins",
+    "favorite": false,
+    "calories": 530
+  },
+  {
+    "id": 10,
+    "name": "Pumpkin Muffin",
+    "description": "Made with real pumpkin and topped with streusel and powdered sugar.",
+    "price": 3.69,
+    "image": "images/pumpkin_muffin.png",
+    "category": "Muffins",
+    "favorite": false,
+    "calories": 560
+  },
+  {
+    "id": 11,
+    "name": "Dark Roast Coffee",
+    "description": "Rich and bold full body with dark chocolate notes and a nutty, sweet finish. Brewed from beans harvested from volcanic soils in Colombia. Freshly ground in cafes.",
+    "price": 2.79,
+    "image": "images/dark_roast_coffee.png",
+    "category": "Drink",
+    "favorite": false,
+    "calories": 15
+  },
+  {
+    "id": 12,
+    "name": "Light Roast Coffee",
+    "description": "Soft and smooth with hints of citrus, roasted nut and chocolate. A blend of Central and South American beans. Light bodied with a bright sweetness. Freshly ground in cafes.",
+    "price": 2.79,
+    "image": "images/light_roast_coffee.png",
+    "category": "Drink",
+    "favorite": false,
+    "calories": 20
+  },
+  {
+    "id": 13,
+    "name": "Green Passion Smoothie",
+    "description": "Peach and mango purees and white grape and passionfruit juices blended with fresh spinach and ice.",
+    "price": 6.19,
+    "image": "images/green_passion_smoothie.png",
+    "category": "Drink",
+    "favorite": false,
+    "calories": 260
+  },
+  {
+    "id": 14,
+    "name": "Mango Smoothie",
+    "description": "Mango fruit base mixed with orange juice and banana puree blended with plain Greek yogurt and ice.",
+    "price": 6.19,
+    "image": "images/mango_smoothie.png",
+    "category": "Drink",
+    "favorite": false,
+    "calories": 300
+  },
+  {
+    "id": 15,
+    "name": "Strawberry Banana Smoothie",
+    "description": "Fresh strawberries blended with a banana and plain Greek yogurt and ice.",
+    "price": 6.19,
+    "image": "images/strawberry_banana_smoothie.png",
+    "category": "Drink",
+    "favorite": false,
+    "calories": 250
+  },
+  {
+    "id": 16,
+    "name": "Caramel Latte",
+    "description": "Espresso, foamed milk & caramel, topped with whipped cream & a drizzle of caramel sauce.",
+    "price": 4.99,
+    "image": "images/caramel_latte.png",
+    "category": "Drink",
+    "favorite": false,
+    "calories": 410
+  },
+  {
+    "id": 17,
+    "name": "Chocolate Latte",
+    "description": "Freshly brewed espresso, foamed milk and chocolate topped with whipped cream and a drizzle of chocolate syrup.",
+    "price": 4.99,
+    "image": "images/choc_latte.png",
+    "category": "Drink",
+    "favorite": false,
+    "calories": 370
+  },
+  {
+    "id": 18,
+    "name": "Egg and Sausage Breakfast Sandwich",
+    "description": "Sausage, over-easy egg, American cheese, salt and pepper, and garlic aioli on a freshly baked Asiago bagel.",
+    "price": 6.79,
+    "image": "images/reg_egg_bsandwich.png",
+    "category": "Breakfast Sandwich",
+    "favorite": false,
+    "calories": 770
+  },
+  {
+    "id": 19,
+    "name": "Scrambled Egg and Sausage Breakfast Sandwich",
+    "description": "Sausage, scrambled egg, American cheese, salt and pepper, and garlic aioli on a freshly baked Asiago bagel.",
+    "price": 6.79,
+    "image": "images/scrambled_egg_bsandwich.png",
+    "category": "Breakfast Sandwich",
+    "favorite": false,
+    "calories": 790
+  },
+  {
+    "id": 20,
+    "name": "Plain Cream Cheese",
+    "description": "Plain Cream Cheese Spread - Individual 1.75oz",
+    "price": 0.99,
+    "image": "images/plain_cc.png",
+    "category": "Spreads",
+    "favorite": false,
+    "calories": 150
+  },
+  {
+    "id": 21,
+    "name": "Chive and Onion Cream Cheese",
+    "description": "Reduced Fat Chive and Onion Cream Cheese Spread – Individual 1.75oz",
+    "price": 0.99,
+    "image": "images/chive_onion_cc.png",
+    "category": "Spreads",
+    "favorite": false,
+    "calories": 130
+  },
+  {
+    "id": 22,
+    "name": "Honey Walnut Cream Cheese",
+    "description": "Reduced Fat Honey Walnut Cream Cheese Spread – Individual 1.75oz",
+    "price": 0.99,
+    "image": "images/honey_walnut_cc.png",
+    "category": "Spreads",
+    "favorite": false,
+    "calories": 150
+  }
+]
