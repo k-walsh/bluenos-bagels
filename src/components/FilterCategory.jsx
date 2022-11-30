@@ -7,10 +7,9 @@ import {
 } from "@mui/material";
 
 export default function FilterCategory(props) {
-  // console.log("props", props);
+
   // filter functions to match categories
   function selectCategoryFilterType(event) {
-    // console.log("Hi");
     props.setCategory(event.target.value);
   }
 
@@ -27,7 +26,7 @@ export default function FilterCategory(props) {
         <FormControlLabel value="Bagels" control={<Radio />} label="Bagels" />
         <FormControlLabel value="Muffins" control={<Radio />} label="Muffins" />
         <FormControlLabel
-          value="Breakfast Sandwich"
+          value="Breakfast Sandwiches"
           control={<Radio />}
           label="Breakfast Sandwich"
         />

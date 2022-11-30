@@ -48,7 +48,7 @@ function App() {
   };
 
   const sortedItems = filteredData.sort((a, b) => {
-    return a.sortType - b.sortType;
+    return a[sortType] - b[sortType];
   });
 
   // aggregator
@@ -72,26 +72,42 @@ function App() {
     }
   }
 
+  /**
+   * Maps the sorted and filtered data to bakery items
+   * @returns the items or a message if no items match the filters
+   */
   function renderItems() {
     if (sortedItems.length > 0) {
       return sortedItems.map((item, index) => (
-        <BakeryItem key={index} item={item} addToCart={addToCart} />
+        <BakeryItem
+          key={index}
+          item={item}
+          addToCart={addToCart}
+          favorites={favorites}
+          setFavorites={setFavorites}
+        />
       ));
     } else if (category === "All" && favorites) {
       return (
         <div>
-          <p>There are no items that match these filters.</p>
-          <p>Add some items to your favorites!</p>
+          <h2 className="NoItems">
+            There are no items that match these filters.
+          </h2>
+          <h2 className="NoItems">Add some items to your favorites!</h2>
         </div>
       );
     } else if (favorites) {
       return (
         <div>
-          <p>There are no {category} in your favorites.</p>
+          <h2 className="NoItems">
+            There are no {category} in your favorites.
+          </h2>
         </div>
       );
     } else {
-      return <p>There are no items that match these filters</p>;
+      return (
+        <h2 className="NoItems">There are no items that match these filters</h2>
+      );
     }
   }
 
@@ -124,6 +140,7 @@ function App() {
           </div>
 
           <Cart
+            // className="Cart"
             cartItems={cartItems}
             setCartItems={setCartItems}
             addToCart={addToCart}

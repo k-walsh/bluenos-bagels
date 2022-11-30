@@ -175,7 +175,7 @@
     "description": "Sausage, over-easy egg, American cheese, salt and pepper, and garlic aioli on a freshly baked Asiago bagel.",
     "price": 6.79,
     "image": "images/reg_egg_bsandwich.png",
-    "category": "Breakfast Sandwich",
+    "category": "Breakfast Sandwiches",
     "favorite": false,
     "calories": 770
   },
@@ -185,7 +185,7 @@
     "description": "Sausage, scrambled egg, American cheese, salt and pepper, and garlic aioli on a freshly baked Asiago bagel.",
     "price": 6.79,
     "image": "images/scrambled_egg_bsandwich.png",
-    "category": "Breakfast Sandwich",
+    "category": "Breakfast Sandwiches",
     "favorite": false,
     "calories": 790
   },

@@ -42,12 +42,25 @@ export default function Cart(props) {
     }
   }
 
+  function plural(item) {
+    if (cartItems[item][0] > 1) {
+      const last = item.length - 1;
+      if (item[last] === "h") {
+        return item + "es";
+      } else {
+        return item + "s";
+      }
+    } else {
+      return item;
+    }
+  }
+
   /**
    *
    * @returns the html to render the cart and total
    */
   function displayCart() {
-    console.log(cartItems);
+    console.log("cart items", cartItems);
     if (Object.keys(cartItems).length === 0) {
       return <p>Nothing here just yet!</p>;
     } else {
@@ -55,15 +68,15 @@ export default function Cart(props) {
         <div>
           {Object.keys(cartItems).map((item) => (
             <div className="itemCart">
-              <RemoveCircleOutlineIcon
+              <RemoveCircleOutlineIcon className="plusMinus"
                 onClick={() => removeOne(item, cartItems[item][1])}
               />
               <p>&nbsp;{cartItems[item][0]}&nbsp;</p>
-              <AddCircleOutlineIcon
+              <AddCircleOutlineIcon className="plusMinus"
                 onClick={() => addOne(item, cartItems[item][1])}
               />
               <p>&nbsp;</p>
-              <p>{item}</p>
+              <p>{plural(item)}</p>
             </div>
           ))}
           <h3>

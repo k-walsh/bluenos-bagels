@@ -2,7 +2,7 @@
   /* background-color: rgb(76, 150, 247); */
   background-color: rgb(66, 201, 245);
   padding: 3% 0% 2% 2%;
-  font-size: 2.5vw;
+  font-size: calc(10px + 1.5vw);
   margin-bottom: 4%;
   display: flex;
   align-items: flex-end;
@@ -25,28 +25,38 @@
 }
 
 .Sidebar {
-  margin: 0 3%;
-  /* width: 200px;
-  why does just setting width here alone
-  (and not in sortfilter and cart)
-  not change the width of the sidebar*/
+  display: flex;
+  flex-direction: column;
+  margin: 0 30px;
+  margin-right: 5%;
+  width: 200px;
+  padding-right: 20px;
 }
 
 .SortFilter {
-  padding: 0 5% 5% 5%;
+  padding-top: 300px;
   display: flex;
   flex-direction: column;
   border: 2px solid rgb(182, 181, 181);
   border-radius: 12px;
   width: 200px;
+  padding: 5% 5% 10px 15px;
+  /* position: -webkit-sticky;
+  position: sticky;
+  top: 0; */
+  align-self: flex-start;
 }
 
 .Cart {
   margin-top: 20px;
-  padding: 5%;
+  padding: 5% 5% 15px 15px;
   border: 2px solid rgb(182, 181, 181);
   border-radius: 12px;
   width: 200px;
+  /* position: -webkit-sticky;
+  position: sticky;
+  top: 540px; */
+  align-self: flex-start;
 }
 
 img {
@@ -58,7 +68,7 @@ img {
 .Items {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   margin: 0;
 }
 
@@ -68,6 +78,22 @@ img {
   border-radius: 25px;
   width: 30vh;
   min-width: 300px;
+  position: relative;
+  height: 30vw;
+  min-height: 520px;
+}
+
+.BottomRow {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 500;
+  width: 100%;
+}
+
+.ItemButtons {
+  display: flex;
+  justify-content: space-between;
+  padding: 0% 8% 5% 6%;
 }
 
 .Heart:hover {
@@ -83,6 +109,16 @@ img {
 .Cart h2 {
   margin-top: 0%;
   margin-bottom: 2%;
+  color: rgb(102, 102, 102);
+}
+
+.plusMinus,
+.Cart h3 {
+  color: rgb(102, 102, 102);
+}
+
+.NoItems {
+  color: rgb(58, 58, 58);
 }
 
 .ItemContent {
@@ -98,9 +134,9 @@ img {
   font-weight: normal;
 }
 
-.ItemButtons {
-  display: flex;
-  justify-content: space-between;
+#demo-controlled-radio-buttons-group {
+  font-size: large;
+  font-weight: bold;
 }
 
 .Cart h3 {
@@ -108,13 +144,9 @@ img {
 }
 
 footer {
-  margin-left: 2%;
+  margin: 30px 0 1% 2%;
 }
 
-/* @media (max-width: 600px) {
-  .Items {
-    display: flex;
-    flex-wrap: wrap;
-    background-color: palegreen;
-  }
-} */
+footer p {
+  margin: 4px;
+}

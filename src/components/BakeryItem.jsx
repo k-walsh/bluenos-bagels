@@ -8,11 +8,20 @@ export default function BakeryItem(props) {
   const item = props.item;
   const [favorite, setFavorite] = useState(item.favorite);
 
+  async function unfavorite() {
+    setFavorite((item.favorite = false));
+    if (props.favorites === "Favorites") {
+      // to refilter since filtered data is in the app component
+      await props.setFavorites("All");
+      props.setFavorites("Favorites");
+    }
+  }
+
   function favoriteIcon() {
     if (item.favorite) {
       return (
         <Tooltip className="Heart" title="Remove from favorites">
-          <FavoriteIcon onClick={() => setFavorite((item.favorite = false))} />
+          <FavoriteIcon onClick={() => unfavorite()} />
         </Tooltip>
       );
     } else {
@@ -35,13 +44,14 @@ export default function BakeryItem(props) {
       <div className="ItemContent">
         <h2>{item.name}</h2>
         <h3>
-          {/* ${item.price} &nbsp; Calories: {item.calories} */}${item.price}{" "}
-          &#183; {item.calories} cal
+          ${item.price} &#183; {item.calories} cal
         </h3>
         <h4>
           <i>Category: {item.category}</i>
         </h4>
         <p>{item.description}</p>
+      </div>
+      <div className="BottomRow">
         <div className="ItemButtons">
           <Button
             variant="outlined"
