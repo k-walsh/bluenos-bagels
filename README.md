@@ -43,7 +43,7 @@ In this application I considered many usability principles including:
 
 
 ### Organization of Components
-The main parent component is the App component which includes all of the components for the website. Each item on the page is representing by a BakeryItem component which contains information such as the item's image, name, price, calories, category, description, and favorite status. Then in the App component, each of the json items from the bakery data are mapped to BakeryItem components. There are then components for the different filters and sorts that are in the sidebar to help declutter the main App component and separate functionality. These include FilterCategory which renders the category filter options, FilterFavorites which renders the favorite filter items, and SortItems which renders the sort options. The cart component contains most of the logic for adding items to the cart, calculating the total price, and displaying the cart. There is also a component for the Footer which gives attributions. 
+The main parent component is the App component which includes all of the components for the website. Each item on the page is representing by a BakeryItem component which contains information such as the item's image, name, price, calories, category, description, and favorite status. Then in the App component, each of the json items from the bakery data are mapped to BakeryItem components. There are then components for the different filters and sorts that are in the sidebar to help declutter the main App component and separate functionality. These include FilterCategory which renders the category filter options, FilterFavorites which renders the favorite filter items, and SortItems which renders the sort options. The Cart component contains most of the logic for adding items to the cart, calculating the total price, and displaying the cart. There is also a component for the Footer which gives attributions. 
 
 
 ### How Data is Passed Down Through Components
@@ -59,7 +59,7 @@ The data starts in a json which is read in the App component as a list. The item
 
 The sorted items are then mapped to BakeryItems in the App component. The item data is passed to the BakeryItem component so the bakery item card can be generated with the item's name, price, and other data. The cart items and function to set the cart's state is also passed to the BakeryItem component so the button to add items to the cart can update the cart state that lives in App.
 
-Then in the cart component, the cartItems state and the correpsonding set function are passed to the Cart component which contains most of the functions that use these props to update the items, counts, and prices in the cartItems state.
+Then in the Cart component, the cartItems state and the correpsonding set function are passed to the Cart component which contains most of the functions that use these props to update the items, counts, and prices in the cartItems state.
 
 
 ### How the User Triggers State Changes
