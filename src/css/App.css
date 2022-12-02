@@ -117,6 +117,10 @@ img {
   color: rgb(102, 102, 102);
 }
 
+.plusMinus:hover {
+  cursor: pointer;
+}
+
 .NoItems {
   color: rgb(58, 58, 58);
 }

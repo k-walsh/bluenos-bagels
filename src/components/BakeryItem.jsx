@@ -38,6 +38,23 @@ export default function BakeryItem(props) {
     }
   }
 
+  /**
+   * Takes in an item and adds one to its count if already in cart, ow adds to cart
+   * @param {*} item_name - the item to add to the cart
+   * @param {*} item_price - the item's price
+   */
+  function addToCart(item_name, item_price) {
+    if (item_name in props.cartItems) {
+      let count = props.cartItems[item_name][0];
+      let all_price = (count + 1) * item_price;
+      props.cartItems[item_name] = [count + 1, all_price];
+      props.setCartItems({ ...props.cartItems });
+    } else {
+      props.cartItems[item_name] = [1, item_price];
+      props.setCartItems({ ...props.cartItems });
+    }
+  }
+
   return (
     <div className="ItemCard">
       <img src={item.image} alt={item.description} />
@@ -55,7 +72,7 @@ export default function BakeryItem(props) {
         <div className="ItemButtons">
           <Button
             variant="outlined"
-            onClick={() => props.addToCart(item.name, item.price)}
+            onClick={() => addToCart(item.name, item.price)}
           >
             Add to Cart
           </Button>

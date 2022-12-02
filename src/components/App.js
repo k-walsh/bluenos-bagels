@@ -13,10 +13,13 @@ bakeryData.forEach((item) => {
 });
 
 function App() {
-  // filter
   const [category, setCategory] = useState("All");
   const [favorites, setFavorites] = useState("All");
+  const [sortType, setSortType] = useState("All");
+  // cartItems is of the form {name: [count, total_price]}
+  const [cartItems, setCartItems] = useState({});
 
+  // filter
   const matchesCategoryFiltertype = (item) => {
     if (category === "All") {
       return true;
@@ -39,38 +42,10 @@ function App() {
     return matchesCategoryFiltertype(e) && matchesFavFiltertype(e);
   });
 
-  // sort stuff
-  const [sortType, setSortType] = useState("All");
-
-  const selectSortType = (event) => {
-    console.log(event.target.value);
-    setSortType(event.target.value);
-  };
-
+  // sort filtered data
   const sortedItems = filteredData.sort((a, b) => {
     return a[sortType] - b[sortType];
   });
-
-  // aggregator
-  // cartItems is of the form {name: [count, total_price]}
-  const [cartItems, setCartItems] = useState({});
-
-  /**
-   * Takes in an item and adds one to its count if already in cart, ow adds to cart
-   * @param {*} item_name - the item to add to the cart
-   * @param {*} item_price - the item's price
-   */
-  function addToCart(item_name, item_price) {
-    if (item_name in cartItems) {
-      let count = cartItems[item_name][0];
-      let all_price = (count + 1) * item_price;
-      cartItems[item_name] = [count + 1, all_price];
-      setCartItems({ ...cartItems });
-    } else {
-      cartItems[item_name] = [1, item_price];
-      setCartItems({ ...cartItems });
-    }
-  }
 
   /**
    * Maps the sorted and filtered data to bakery items
@@ -82,9 +57,8 @@ function App() {
         <BakeryItem
           key={index}
           item={item}
-          addToCart={addToCart}
-          favorites={favorites}
-          setFavorites={setFavorites}
+          cartItems={cartItems}
+          setCartItems={setCartItems}
         />
       ));
     } else if (category === "All" && favorites) {
@@ -123,7 +97,7 @@ function App() {
             <SortItems
               className="SortBy"
               sortType={sortType}
-              selectSortType={selectSortType}
+              setSortType={setSortType}
             />
             <br />
             <FilterCategory
@@ -139,12 +113,7 @@ function App() {
             />
           </div>
 
-          <Cart
-            // className="Cart"
-            cartItems={cartItems}
-            setCartItems={setCartItems}
-            addToCart={addToCart}
-          />
+          <Cart cartItems={cartItems} setCartItems={setCartItems} />
         </div>
 
         <div className="Items">{renderItems()}</div>

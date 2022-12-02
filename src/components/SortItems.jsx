@@ -7,6 +7,12 @@ import {
 } from "@mui/material";
 
 export default function SortItems(props) {
+
+  const selectSortType = (event) => {
+    console.log(event.target.value);
+    props.setSortType(event.target.value);
+  };
+
   return (
     <FormControl>
       <FormLabel id="demo-controlled-radio-buttons-group">Sort By</FormLabel>
@@ -14,7 +20,7 @@ export default function SortItems(props) {
         aria-labelledby="demo-controlled-radio-buttons-group"
         name="controlled-radio-buttons-group"
         value={props.sortType}
-        onChange={props.selectSortType}
+        onChange={selectSortType}
       >
         <FormControlLabel value="price" control={<Radio />} label="Price" />
         <FormControlLabel

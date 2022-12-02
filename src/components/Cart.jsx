@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 export default function Cart(props) {
   const cartItems = props.cartItems;
   const setCartItems = props.setCartItems;
-  const addToCart = props.addToCart;
+  
   /**
    * Maps every cart item to it's total price and sums the prices of all items
    * @returns the total price of everything in the cart
