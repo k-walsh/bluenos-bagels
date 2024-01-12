@@ -1,4 +1,5 @@
-# Development
+# Blueno's Bagel Shop
+## Development - UI/UX Fall 2022
 
 ### Link to Deployed Website
 https://giantgiraffe123.github.io/development/
