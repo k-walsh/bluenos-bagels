@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/development/static/css/main.59253015.css",
-    "main.js": "/development/static/js/main.a15b265e.js",
-    "index.html": "/development/index.html",
-    "main.59253015.css.map": "/development/static/css/main.59253015.css.map",
-    "main.a15b265e.js.map": "/development/static/js/main.a15b265e.js.map"
+    "main.css": "/bluenos-bagels/static/css/main.59253015.css",
+    "main.js": "/bluenos-bagels/static/js/main.7e331b1f.js",
+    "index.html": "/bluenos-bagels/index.html",
+    "main.59253015.css.map": "/bluenos-bagels/static/css/main.59253015.css.map",
+    "main.7e331b1f.js.map": "/bluenos-bagels/static/js/main.7e331b1f.js.map"
   },
   "entrypoints": [
     "static/css/main.59253015.css",
-    "static/js/main.a15b265e.js"
+    "static/js/main.7e331b1f.js"
   ]
 }
