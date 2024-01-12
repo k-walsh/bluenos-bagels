@@ -2,7 +2,7 @@
 ## Development - UI/UX Fall 2022
 
 ### Link to Deployed Website
-https://giantgiraffe123.github.io/development/
+https://k-walsh.github.io/bluenos-bagels/
 
 
 ### Goal and Value of the Application
